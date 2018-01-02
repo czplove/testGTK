@@ -1,0 +1,30 @@
+README for GTK
+-----------------
+
+查看是否安装了GTK：
+pkg-config --list-all | grep gtk
+
+安装编译工具 ---- 这将安装gcc/g++/gdb/make 等基本编程工具：
+sudo apt-get install build-essential
+
+安装GTK的命令：
+sudo apt-get install gnome-devel gnome-devel-docs
+
+查看GTK库版本：
+pkg-config --modversion gtk+-2.0
+pkg-config --modversion gtk+-3.0
+
+
+编译命令：
+gcc -o gtk_test gtk_test.c `pkg-config --cflags --libs gtk+-2.0`
+或者：
+gcc -o gtk_test gtk_test.c `pkg-config --cflags --libs gtk+-3.0`
+
+
+运行命令：
+./gtk_test
+
+
+注意:
+编译命令中`pkg-config --cflags --libs gtk+-2.0`一定要放到源文件之后，否则会报错.
+`pkg-config --cflags --libs gtk+-2.0`符号不是我们的单引号，而是Esc按键下面的那个按键，很容易出错。
